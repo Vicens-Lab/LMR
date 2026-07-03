@@ -62,12 +62,12 @@ strong on all three, and the Trifecta tells them apart.
 Four pretrained RNA backbones on HuggingFace (weights); configs and training code
 are in this repo.
 
-| Model | Params | Context | Weights |
-|---|---|---|---|
-| LMR-v0 | 289M | 512 | `git clone https://huggingface.co/GaboG7/LMR-v0` |
-| LMR-G | 228M | 512 | `git clone https://huggingface.co/GaboG7/LMR-G` |
-| LMR-nano | 65M | 512 | `git clone https://huggingface.co/GaboG7/LMR-mini` |
-| LMR-Long | 290M | 4,096 | `git clone https://huggingface.co/GaboG7/LMR-Long` |
+| Model | Params | Context | HuggingFace | Weights |
+|---|---|---|---|---|
+| LMR-v0 | 289M | 512 | [GaboG7/LMR-v0](https://huggingface.co/GaboG7/LMR-v0) | `git clone https://huggingface.co/GaboG7/LMR-v0` |
+| LMR-G | 228M | 512 | [GaboG7/LMR-G](https://huggingface.co/GaboG7/LMR-G) | `git clone https://huggingface.co/GaboG7/LMR-G` |
+| LMR-nano | 65M | 512 | [GaboG7/LMR-mini](https://huggingface.co/GaboG7/LMR-mini) | `git clone https://huggingface.co/GaboG7/LMR-mini` |
+| LMR-Long | 290M | 4,096 | [GaboG7/LMR-Long](https://huggingface.co/GaboG7/LMR-Long) | `git clone https://huggingface.co/GaboG7/LMR-Long` |
 
 *Only the 228M LMR-G backbone is released; the smaller 86M LMR-G is not (its config `lmr_g.yml` is included for replication only).*
 
@@ -99,6 +99,9 @@ foundational/train.py ...`. Full pretraining of the larger backbones still wants
 GPU, but everything loads and runs on CPU or Apple Silicon for development and inference.
 
 ## Get the dataset
+
+**SHIFU-Corpus** (254,123 sequences, leakage-audited, family-disjoint splits) is on
+HuggingFace: [GaboG7/SHIFU-Corpus](https://huggingface.co/datasets/GaboG7/SHIFU-Corpus).
 
 ```bash
 huggingface-cli download GaboG7/SHIFU-Corpus --repo-type dataset --local-dir ./shifu_corpus
