@@ -1,0 +1,154 @@
+{
+  "total_before": 310034,
+  "total_after": 254393,
+  "exact_dups_removed": 55641,
+  "dups_by_source": {
+    "archive2": 1771,
+    "rnastralign": 9821,
+    "rnasstr": 43604,
+    "dssr_90id": 97,
+    "rnapolis_05": 348
+  },
+  "examples": [
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-C.reinhardtii.chloro",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_54985",
+      "seq_len": 1474
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-C.reinhardtii.mito",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_54706",
+      "seq_len": 1200
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-D.melanogaster",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_55078",
+      "seq_len": 1995
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-G.intestinalis",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_55096",
+      "seq_len": 1452
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-H.sapiens.mito",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_55240",
+      "seq_len": 954
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-H.volcanii",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_54756",
+      "seq_len": 1474
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-M.polymorpha",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_54715",
+      "seq_len": 1974
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "16S_rRNA-T.maritima",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_54977",
+      "seq_len": 1562
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "23S_rRNA-H.pylori",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_55293",
+      "seq_len": 2968
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acanthamoeba-castellanii-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_17949",
+      "seq_len": 119
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acheta-domesticus-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_17945",
+      "seq_len": 120
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acholeplasma-laidlawii-3",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_RFAM_655",
+      "seq_len": 112
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acidiphilium-cryptum-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_15581",
+      "seq_len": 122
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acidithiobacillus-ferrooxidans-2",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_55442",
+      "seq_len": 120
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acidithiobacillus-thiooxidans-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_55448",
+      "seq_len": 121
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acidovorax-temperans-1",
+      "original_source": "archive2",
+      "original_id": "5S_rRNA-Acidovorax-facilis-1",
+      "seq_len": 115
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acinetobacter-sp.-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_16567",
+      "seq_len": 116
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acinetospora-crinita-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_17947",
+      "seq_len": 118
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acremonium-chrysogenum-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_17944",
+      "seq_len": 119
+    },
+    {
+      "dup_source": "archive2",
+      "dup_id": "5S_rRNA-Acremonium-persicinum-1",
+      "original_source": "bpRNA",
+      "original_id": "bpRNA_CRW_17948",
+      "seq_len": 119
+    }
+  ]
+}

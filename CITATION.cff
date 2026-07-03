@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or SHIFU-Corpus, please cite the paper below."
+title: "SHIFU: an integrated framework for deep learning of RNA secondary structure"
+authors:
+  - family-names: Galvez
+    given-names: Gabriel
+    affiliation: "Vicens Lab, University of Houston"
+  - family-names: Vicens
+    given-names: Quentin
+    affiliation: "Vicens Lab, University of Houston"
+year: 2026
+repository-code: "https://github.com/Vicens-Lab/LMR"
+license: MIT
+preferred-citation:
+  type: article
+  title: "SHIFU: an integrated framework for deep learning of RNA secondary structure"
+  authors:
+    - family-names: Galvez
+      given-names: Gabriel
+    - family-names: Vicens
+      given-names: Quentin
+  journal: "Nature Methods (under review)"
+  year: 2026

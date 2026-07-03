@@ -1,0 +1,93 @@
+seed: 42
+
+model:
+  vocab_size: 11
+  d_model: 576
+  n_layers: 12
+  n_heads: 9
+  ff_mult: 4
+  max_seq_len: 2048
+
+  dropout: 0.10
+  attention_dropout: 0.10
+
+  rope_theta: 10000.0
+  norm_eps: 1.0e-06
+  initializer_range: 0.02
+
+  pad_token_id: 0
+  start_token_id: 1
+  end_token_id: 2
+  mask_token_id: 3
+  unk_token_id: 4
+  msa_sep_token_id: 5
+  gap_token_id: 6
+  tie_word_embeddings: true
+
+data:
+  data_dir: "<DATA_ROOT>/datasets/rna_central_csv_chunks/"
+  tokenizer_path: "tokenizers/minimal_rna_tokenizer.json"
+  tokenizer_type: "minimal"
+  train_split: 0.95
+  max_seq_len: 2048
+  estimated_train_sequences: 6000000
+
+  mask_probability: 0.15
+  mask_replace_prob: 0.8
+
+  use_span_masking: false
+  use_reverse_complement: false
+  use_nucleotide_noise: false
+  dynamic_masking: false
+
+training:
+  num_epochs: 4
+  max_steps: 200000
+  batch_size_per_gpu: 8
+  gradient_accumulation_steps: 8
+
+  learning_rate: 0.0008
+  warmup_steps: 2000
+  max_grad_norm: 1.0
+
+  weight_decay: 0.01
+  label_smoothing: 0.0
+
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+
+  use_gradient_checkpointing: false
+  use_amp: true
+  amp_dtype: "bfloat16"
+  lr_scheduler_type: "cosine"
+
+checkpointing:
+  output_dir: "<DATA_ROOT>/checkpoints/lmr_nano_B"
+  save_steps: 2000
+  eval_steps: 1000
+  save_total_limit: 3
+  delete_old_checkpoints: true
+
+early_stopping:
+  patience: 5
+  min_delta: 0.001
+  metric: "val_loss"
+  enabled: false
+
+logging:
+  log_steps: 100
+  use_wandb: false
+
+memory:
+  gc_interval: 100
+  empty_cache_interval: 500
+  log_memory_usage: true
+  memory_log_interval: 100
+  max_memory_warning_gb: 30
+
+limits:
+  max_steps: 100000
+  max_hours: 48
+  max_epochs: 1
+  early_stop_enabled: false

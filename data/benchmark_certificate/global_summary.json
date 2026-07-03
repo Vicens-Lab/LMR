@@ -1,0 +1,79 @@
+{
+  "version": "1.3.0",
+  "build_time": "2026-02-23 18:28:19",
+  "total_records": 254123,
+  "passed_all_filters": 254123,
+  "filtered_out": 0,
+  "records_by_source": {
+    "bpRNA": 27699,
+    "archive2": 2204,
+    "rnastralign": 27328,
+    "rnasstr": 195368,
+    "dssr_90id": 1006,
+    "rnapolis_05": 518
+  },
+  "length_stats": {
+    "min": 20,
+    "max": 4997,
+    "mean": 231.6,
+    "median": 100
+  },
+  "pk_prevalence": 0.0142,
+  "gc_mean": 0.5391,
+  "pair_density_mean": 0.2407,
+  "n_unique_families": 11,
+  "n_rfam_families": 10,
+  "n_rfam_clans": 0,
+  "top_20_families": {
+    "UNK": 223902,
+    "RF00177": 11221,
+    "RF00001": 9501,
+    "RF00005": 5987,
+    "RF00028": 1561,
+    "RF00017": 730,
+    "RF00009": 597,
+    "RF00023": 572,
+    "RF02541": 34,
+    "RF00029": 11,
+    "RF00024": 7
+  },
+  "rfam_clan_counts": {},
+  "tiered_labels": {
+    "gold_labeled": 193650,
+    "pred_labeled": 223871,
+    "active_labeled": 223871,
+    "active_policy_dist": {
+      "gold": 193650,
+      "unlabeled": 30252,
+      "heuristic": 30221
+    },
+    "rna_type_dist": {
+      "UNK": 202499,
+      "rRNA": 33449,
+      "tRNA": 9082,
+      "intron": 3276,
+      "riboswitch": 1300,
+      "RNase_P": 1156,
+      "snoRNA": 1001,
+      "SRP_RNA": 758,
+      "snRNA": 639,
+      "tmRNA": 576,
+      "ribozyme": 188,
+      "miRNA": 73,
+      "telomerase_RNA": 53,
+      "RNase_MRP": 53,
+      "IRES": 20
+    }
+  },
+  "seed": 42,
+  "split_ratios": [
+    0.8,
+    0.1,
+    0.1
+  ],
+  "min_len": 20,
+  "max_len": 8192,
+  "near_dup_method": "minhash",
+  "kmer": 6,
+  "jaccard_thresh": 0.9
+}

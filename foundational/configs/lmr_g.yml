@@ -1,0 +1,123 @@
+seed: 42
+
+model:
+  vocab_size: 11
+  d_model: 768
+  n_layers: 8
+  n_heads: 12
+  ff_mult: 2.67
+  max_seq_len: 2048
+
+  dropout: 0.0
+  attention_dropout: 0.0
+
+  rope_theta: 10000.0
+  norm_eps: 1.0e-06
+
+  pad_token_id: 0
+  start_token_id: 1
+  end_token_id: 2
+  mask_token_id: 3
+  unk_token_id: 4
+  msa_sep_token_id: 5
+  gap_token_id: 6
+  tie_word_embeddings: true
+
+  use_plucker_bias: true
+  geo_dim: 4
+  plucker_target_gamma: 1.0e-3
+  plucker_warmup_steps: 5000
+
+  use_grassmann: true
+  grassmann_window: 15
+  num_grassmann_per_block: 3
+  ortho_method: "penalty"
+  ortho_penalty_weight: 0.01
+
+  use_curriculum: true
+  curriculum_phase1_steps: 30000
+  curriculum_phase2_steps: 30000
+  curriculum_phase3_steps: 40000
+
+  mlm_weight: 0.5
+  span_weight: 0.3
+  stem_span_weight: 0.2
+
+  diagnostic_interval: 100
+  plucker_diagnostic_interval: 500
+  eigenvalue_spread_warning: 100.0
+  eigenvalue_spread_critical: 1000.0
+  plucker_influence_warning: 0.001
+
+data:
+  data_dir: "<DATA_ROOT>/datasets/rna_central_csv_chunks"
+  tokenizer_path: "<DATA_ROOT>/SimpleRNATokenizer"
+  tokenizer_type: "simple"
+  train_split: 0.9
+  max_seq_len: 2048
+  estimated_train_sequences: 28800000
+
+  mask_probability: 0.15
+  mask_replace_prob: 0.8
+
+  use_span_masking: true
+  span_length_min: 2
+  span_length_max: 5
+
+  use_stem_span_masking: true
+  stem_span_min_dist: 100
+  stem_span_length: 8
+  stem_span_gc_threshold: 0.5
+  stem_span_complementarity: 0.4
+
+  use_reverse_complement: false
+  use_nucleotide_noise: false
+  dynamic_masking: false
+
+training:
+  num_epochs: 10
+  max_steps: 100000
+  batch_size_per_gpu: 8
+  gradient_accumulation_steps: 4
+
+  learning_rate: 1.0e-4
+  warmup_steps: 2000
+  max_grad_norm: 1.0
+
+  weight_decay: 0.01
+  label_smoothing: 0.0
+
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+
+  use_gradient_checkpointing: true
+  use_amp: true
+  amp_dtype: "bfloat16"
+  lr_scheduler_type: "cosine"
+
+checkpointing:
+  output_dir: "<DATA_ROOT>/checkpoints/foundation_v3"
+  save_steps: 5000
+  eval_steps: 2500
+  save_total_limit: 5
+  delete_old_checkpoints: true
+
+early_stopping:
+  patience: 5
+  min_delta: 0.001
+  metric: "val_loss"
+  enabled: false
+
+logging:
+  log_steps: 50
+  use_wandb: false
+  diagnostic_interval: 100
+  plucker_diagnostic_interval: 500
+
+memory:
+  gc_interval: 100
+  empty_cache_interval: 500
+  log_memory_usage: true
+  memory_log_interval: 100
+  max_memory_warning_gb: 30

@@ -1,0 +1,135 @@
+{
+  "train": {
+    "count": 203298,
+    "length_mean": 193.8,
+    "length_median": 98,
+    "length_min": 20,
+    "length_max": 4997,
+    "gc_mean": 0.5421,
+    "pair_density_mean": 0.2401,
+    "pk_fraction": 0.0125,
+    "source_distribution": {
+      "archive2": 1139,
+      "bpRNA": 23752,
+      "dssr_90id": 690,
+      "rnapolis_05": 365,
+      "rnasstr": 155673,
+      "rnastralign": 21679
+    },
+    "source_proportions": {
+      "archive2": 0.0056,
+      "bpRNA": 0.1168,
+      "dssr_90id": 0.0034,
+      "rnapolis_05": 0.0018,
+      "rnasstr": 0.7657,
+      "rnastralign": 0.1066
+    },
+    "n_unique_families": 4,
+    "top_10_families": {
+      "UNK": 180480,
+      "RF00001": 9501,
+      "RF00177": 7330,
+      "RF00005": 5987
+    }
+  },
+  "val": {
+    "count": 25412,
+    "length_mean": 337.7,
+    "length_median": 102,
+    "length_min": 20,
+    "length_max": 4856,
+    "gc_mean": 0.538,
+    "pair_density_mean": 0.2445,
+    "pk_fraction": 0.0185,
+    "source_distribution": {
+      "archive2": 102,
+      "bpRNA": 2722,
+      "dssr_90id": 88,
+      "rnapolis_05": 49,
+      "rnasstr": 18662,
+      "rnastralign": 3789
+    },
+    "source_proportions": {
+      "archive2": 0.004,
+      "bpRNA": 0.1071,
+      "dssr_90id": 0.0035,
+      "rnapolis_05": 0.0019,
+      "rnasstr": 0.7344,
+      "rnastralign": 0.1491
+    },
+    "n_unique_families": 2,
+    "top_10_families": {
+      "UNK": 21521,
+      "RF00177": 3891
+    }
+  },
+  "test": {
+    "count": 25413,
+    "length_mean": 427.9,
+    "length_median": 121,
+    "length_min": 25,
+    "length_max": 4798,
+    "gc_mean": 0.5162,
+    "pair_density_mean": 0.2415,
+    "pk_fraction": 0.0239,
+    "source_distribution": {
+      "archive2": 963,
+      "bpRNA": 1225,
+      "dssr_90id": 228,
+      "rnapolis_05": 104,
+      "rnasstr": 21033,
+      "rnastralign": 1860
+    },
+    "source_proportions": {
+      "archive2": 0.0379,
+      "bpRNA": 0.0482,
+      "dssr_90id": 0.009,
+      "rnapolis_05": 0.0041,
+      "rnasstr": 0.8276,
+      "rnastralign": 0.0732
+    },
+    "n_unique_families": 8,
+    "top_10_families": {
+      "UNK": 21901,
+      "RF00028": 1561,
+      "RF00017": 730,
+      "RF00009": 597,
+      "RF00023": 572,
+      "RF02541": 34,
+      "RF00029": 11,
+      "RF00024": 7
+    }
+  },
+  "split_audit": {
+    "n_super_groups": 207956,
+    "target_ratios": [
+      0.8,
+      0.1,
+      0.1
+    ],
+    "actual_counts": {
+      "train": 203298,
+      "val": 25412,
+      "test": 25413
+    },
+    "actual_ratios": {
+      "train": 0.8,
+      "val": 0.1,
+      "test": 0.1
+    },
+    "bin_edges": [
+      20,
+      68,
+      75,
+      79,
+      88,
+      100,
+      113,
+      122,
+      153,
+      387,
+      4997
+    ],
+    "prefer_group": "clan"
+  }
+}

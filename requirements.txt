@@ -1,0 +1,15 @@
+# Core (training + backbone) -- verified against the shipped code
+torch>=2.0
+numpy>=1.23
+pyyaml>=6.0
+
+# Loading the released weights from HuggingFace
+huggingface_hub>=0.20
+safetensors>=0.4
+
+# Optional: evaluation / Trifecta metrics and figures
+scipy>=1.10
+matplotlib>=3.7
+
+# Pinned reference environment used for the paper:
+#   torch==2.1.2+cu121, numpy==1.26.4, Python 3.9-3.10

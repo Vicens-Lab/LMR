@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+*.env
+
+# Model weights / checkpoints (host on HuggingFace, not git)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+checkpoints/
+outputs/
+
+# Large data (host on HuggingFace datasets; keep only the certificate JSONs)
+shifu_corpus/
+data/*.csv
+data/*.jsonl
+data/*.parquet
+data/*.fasta
+*.npz
+
+# Logs / experiment tracking
+*.log
+wandb/
+runs/
+lightning_logs/
+tensorboard/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

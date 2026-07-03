@@ -1,0 +1,139 @@
+backbone_config_path: "<DATA_ROOT>/configs/v0.yml"
+backbone_checkpoint_path: "<DATA_ROOT>/checkpoints/v0_final/checkpoint_best.pt"
+freeze_backbone: true
+
+use_lora: true
+lora_rank: 32
+lora_alpha: 32
+lora_dropout: 0.06
+lora_target_modules:
+  - "q_proj"
+  - "k_proj"
+  - "v_proj"
+  - "out_proj"
+
+pairing_head:
+  pairwise_method: "outer_concat"
+  num_axial_blocks: 4
+  axial_heads: 8
+  axial_dim: 128
+  axial_dropout: 0.1
+  axial_ff_mult: 2.0
+  projection_hidden: 64
+  use_wc_bias: true
+  wc_bias_learnable: false
+  wc_invalid_penalty: -1000000000.0
+  include_wobble: true
+  min_loop_length: 3
+  loop_penalty: -1000000000.0
+
+auxiliary_heads:
+  use_structure_head: true
+  structure_hidden: 512
+  structure_dropout: 0.1
+  structure_detach: false
+  structure_num_labels: 7
+  use_shape_head: false
+  shape_hidden: 256
+  shape_dropout: 0.1
+  shape_detach: true
+
+loss:
+  pairing_loss_type: "focal_bce"
+  focal_gamma: 1.5
+  pos_weight: 5.0
+  one_partner_weight: 0.6
+  one_partner_type: "sum_penalty"
+  shape_consistency_weight: 0.0
+  structure_consistency_weight: 0.2
+  aux_structure_weight: 0.2
+  label_smoothing: 0.0
+
+curriculum:
+  use_curriculum: true
+  stage1_enabled: false
+  stage1_epochs: 2
+  stage1_lr: 0.0001
+  stage1_train_backbone: false
+  stage2_epochs: 8
+  stage2_lr: 0.0003
+  stage2_train_backbone: false
+  stage2_transition_f1: 0.15
+  stage3_epochs: 25
+  stage3_lr: 0.0002
+  stage3_train_backbone: false
+  stage3_train_aux_heads: true
+  stage4_enabled: true
+  stage4_epochs: 5
+  stage4_lr: 0.0001
+  stage4_fp_threshold: 0.3
+  stage4_hard_sample_ratio: 0.5
+
+decoding:
+  confidence_threshold: 0.5
+  entropy_threshold: 1.5
+  allow_pseudoknots: false
+  min_stem_length: 2
+
+data_path: "<DATA_ROOT>/shifu_corpus/train.csv"
+tokenizer_path: "<DATA_ROOT>/SimpleRNATokenizer"
+max_seq_len: 512
+min_seq_len: 20
+train_split: 0.8
+val_split: 0.1
+test_split: 0.1
+num_workers: 4
+prefetch_factor: 2
+include_shape: false
+include_labels: true
+
+batch_size: 1
+gradient_accumulation_steps: 32
+optimizer: "adamw"
+learning_rate: 0.0003
+weight_decay: 0.01
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_epsilon: 0.00000001
+max_grad_norm: 1.0
+scheduler: "cosine"
+warmup_ratio: 0.1
+warmup_steps: 0
+num_epochs: 40
+max_steps: -1
+use_amp: true
+amp_dtype: "float16"
+
+device: "cuda:0"
+local_rank: 0
+
+eval_steps: 300
+eval_strategy: "steps"
+eval_accumulation_steps: 1
+metric_for_best_model: "pair_f1"
+greater_is_better: true
+
+output_dir: "<DATA_ROOT>/checkpoints/lmr_pair_exp_A_v4/"
+save_steps: 200
+save_total_limit: 3
+save_best: true
+save_last: true
+resume_from_checkpoint: null
+
+early_stopping_enabled: true
+early_stopping_patience: 7
+early_stopping_min_delta: 0.001
+
+log_steps: 50
+logging_first_step: true
+log_level: "info"
+experiment_name: "pairing_exp_A"
+experiment_description: "Experiment A: Baseline without SHAPE, all bugs fixed"
+tags:
+  - "experiment_A"
+  - "no_shape"
+  - "baseline"
+  - "patched"
+
+seed: 42
+deterministic: false

@@ -1,0 +1,60 @@
+{
+  "by_split": {
+    "test": {
+      "n": 25413,
+      "labeled_family_pct": 93.67,
+      "labeled_clan_pct": 37.67,
+      "typed_pct": 27.16
+    },
+    "train": {
+      "n": 203298,
+      "labeled_family_pct": 87.33,
+      "labeled_clan_pct": 29.93,
+      "typed_pct": 19.12
+    },
+    "val": {
+      "n": 25412,
+      "labeled_family_pct": 88.68,
+      "labeled_clan_pct": 28.8,
+      "typed_pct": 23.06
+    }
+  },
+  "by_source": {
+    "archive2": {
+      "n": 2204,
+      "labeled_family_pct": 100.0,
+      "labeled_clan_pct": 0.0,
+      "typed_pct": 100.0
+    },
+    "bpRNA": {
+      "n": 27861,
+      "labeled_family_pct": 92.86,
+      "labeled_clan_pct": 46.26,
+      "typed_pct": 35.42
+    },
+    "dssr_90id": {
+      "n": 1114,
+      "labeled_family_pct": 35.37,
+      "labeled_clan_pct": 79.95,
+      "typed_pct": 29.53
+    },
+    "rnapolis_05": {
+      "n": 518,
+      "labeled_family_pct": 27.41,
+      "labeled_clan_pct": 77.46,
+      "typed_pct": 16.22
+    },
+    "rnasstr": {
+      "n": 195368,
+      "labeled_family_pct": 85.96,
+      "labeled_clan_pct": 33.47,
+      "typed_pct": 6.05
+    },
+    "rnastralign": {
+      "n": 27328,
+      "labeled_family_pct": 100.0,
+      "labeled_clan_pct": 0.0,
+      "typed_pct": 100.0
+    }
+  }
+}

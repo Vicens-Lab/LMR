@@ -1,0 +1,9 @@
+{
+  "slices/test_clan_heldout.csv": "a67daaa12272769e2fd5157a9177ac19b665dd5637d75568f7d61edc48af097c",
+  "slices/test_family_heldout.csv": "3f912db39d0ec24e95bcc9d6896cf3b72faf6491083184a634e5925ec3ee988d",
+  "slices/test_standard.csv": "1fd8b41bb49b439ab89fe050ac476243e2da2b6a0a05d85d50a88e7e4e79ed87",
+  "slices/test_unlabeled_ood.csv": "6c5ffd6231b1ecbf5b5c67e12e2be22bbf5f37bb812ecd1a7b8a6aa65b83641d",
+  "splits/test.jsonl": "46f31b5cf4f72da5019f1954c9a353b3ed3023d66e4e2d75f5fad6ffd6a740f6",
+  "splits/train.jsonl": "c7cd31ec8ea1c5dc1b78191a4f4ba23e7ca4167d23f817d6c2086a0e8ea15dd4",
+  "splits/val.jsonl": "ebeecb779aae33c679e560a3f625126ac15557849808e087938f8a52cf39f008"
+}
