@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/LMRs.png" width="360" alt="LMRs">
+</p>
+
 # LMR: Language Models for RNA
 
 > A leakage-audited RNA benchmark, an honest three-axis evaluation, and compact RNA
@@ -61,9 +65,11 @@ are in this repo.
 | Model | Params | Context | Weights |
 |---|---|---|---|
 | LMR-v0 | 289M | 512 | `git clone https://huggingface.co/GaboG7/LMR-v0` |
-| LMR-G | 86M (or 228M) | 512 | `git clone https://huggingface.co/GaboG7/LMR-G` |
+| LMR-G | 228M | 512 | `git clone https://huggingface.co/GaboG7/LMR-G` |
 | LMR-nano | 65M | 512 | `git clone https://huggingface.co/GaboG7/LMR-mini` |
 | LMR-Long | 290M | 4,096 | `git clone https://huggingface.co/GaboG7/LMR-Long` |
+
+*Only the 228M LMR-G backbone is released; the smaller 86M LMR-G is not (its config `lmr_g.yml` is included for replication only).*
 
 ## Installation
 
@@ -122,6 +128,20 @@ PYTHONPATH=. python foundational/train_long.py --config foundational/configs/lmr
 ```
 Edit the `<DATA_ROOT>` paths in the chosen config to point at your corpus and
 checkpoint directory.
+
+## Evaluation & data utilities
+
+We provide the paper's evaluation code as **utilities you integrate as needed**, not
+a turnkey pipeline. You wire in your own 2D model's predictions; the scoring and
+metrics are the paper's, so your numbers stay comparable.
+
+- `utils/scoring.py` — score one prediction: base-pair precision/recall/F1 (+ entropy).
+- `utils/trifecta.py` — compute the Trifecta (micro-F1, RBI, RUI) from per-sequence results.
+- `utils/data_pipeline.py` — load SHIFU-Corpus records (sequence + reference) for eval;
+  training streaming uses `data/pytorch_wrapper.py`.
+
+Recipe: load records, run your model, score with `basepair_set_prf1`, aggregate with
+`trifecta.py`. Take only the pieces you need; full guide in `utils/README.md`.
 
 ## Repository layout
 

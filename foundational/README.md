@@ -7,8 +7,8 @@ the configs and trainers here reproduce them.
 |---|---|---|---|---|---|
 | LMR-v0 | `configs/lmr_v0.yml` | 289M | 512 | `train.py` | GaboG7/LMR-v0 |
 | LMR-nano | `configs/lmr_nano.yml` | 65M | 512 | `train.py` | GaboG7/LMR-mini |
-| LMR-G | `configs/lmr_g.yml` | 86M | 512 | `train.py` | GaboG7/LMR-G |
-| LMR-G-160 | `configs/lmr_g_160.yml` | 228M | 512 | `train.py` | (optional) |
+| LMR-G | `configs/lmr_g_160.yml` | 228M | 512 | `train.py` | GaboG7/LMR-G |
+| LMR-G (small) | `configs/lmr_g.yml` | 86M | 512 | `train.py` | not released (config only) |
 | LMR-Long | `configs/lmr_long.yml` | 290M | 4,096 | `train_long.py` | GaboG7/LMR-Long |
 
 `train.py` (v0 / nano / G) and `train_long.py` (long-context, hybrid
