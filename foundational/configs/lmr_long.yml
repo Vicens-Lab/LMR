@@ -1,0 +1,100 @@
+seed: 42
+
+rope_scaling:
+  type: "ntk"
+  factor: 2.0
+  original_max_seq_len: 2048
+
+model:
+  vocab_size: 11
+  d_model: 1024
+  n_layers: 24
+  n_heads: 16
+  ff_mult: 2.5
+  max_seq_len: 4096
+
+  attention_window: 256
+
+  dropout: 0.05
+  attention_dropout: 0.05
+
+  rope_theta: 10000.0
+  norm_eps: 1.0e-06
+  initializer_range: 0.02
+
+  pad_token_id: 0
+  start_token_id: 1
+  end_token_id: 2
+  mask_token_id: 3
+  unk_token_id: 4
+  msa_sep_token_id: 5
+  gap_token_id: 6
+  tie_word_embeddings: true
+
+data:
+  data_dir: "<DATA_ROOT>/datasets/rna_central_csv_chunks/"
+  tokenizer_path: "<DATA_ROOT>/SimpleRNATokenizer"
+  tokenizer_type: "simple"
+  train_split: 0.95
+  max_seq_len: 4096
+  estimated_train_sequences: 6000000
+
+  mask_probability: 0.15
+  mask_replace_prob: 0.8
+
+  use_span_masking: false
+  use_reverse_complement: false
+  use_nucleotide_noise: false
+  dynamic_masking: false
+
+training:
+  num_epochs: 2
+  max_steps: 30000
+  batch_size_per_gpu: 4
+  gradient_accumulation_steps: 8
+
+  learning_rate: 5.0e-05
+  warmup_steps: 500
+  max_grad_norm: 1.0
+
+  weight_decay: 0.01
+  label_smoothing: 0.0
+
+  adam_beta1: 0.9
+  adam_beta2: 0.98
+  adam_epsilon: 1.0e-08
+
+  use_gradient_checkpointing: true
+  use_amp: true
+  amp_dtype: "bfloat16"
+  lr_scheduler_type: "cosine"
+
+checkpointing:
+  output_dir: "<DATA_ROOT>/checkpoints/lmr_long_4k"
+  save_steps: 1000
+  eval_steps: 500
+  save_total_limit: 3
+  delete_old_checkpoints: true
+
+early_stopping:
+  patience: 5
+  min_delta: 0.001
+  metric: "val_loss"
+  enabled: true
+
+logging:
+  log_steps: 50
+  use_wandb: false
+
+memory:
+  gc_interval: 50
+  empty_cache_interval: 200
+  log_memory_usage: true
+  memory_log_interval: 50
+  max_memory_warning_gb: 30
+
+limits:
+  max_steps: 30000
+  max_hours: 48
+  max_epochs: 2
+  early_stop_enabled: true

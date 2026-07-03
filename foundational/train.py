@@ -62,10 +62,10 @@ class FoundationTrainer:
         self.global_step = 0
         self.best_val_loss = float('inf')
         self.best_val_acc = 0.0
-        self.use_amp = config['training'].get('use_amp', True)
+        self.use_amp = config['training'].get('use_amp', True) and device.type == 'cuda'
         amp_dtype_str = config['training'].get('amp_dtype', 'bfloat16')
         self.amp_dtype = torch.bfloat16 if amp_dtype_str == 'bfloat16' else torch.float16
-        self.scaler = GradScaler('cuda', enabled=self.use_amp and self.amp_dtype == torch.float16)
+        self.scaler = GradScaler(enabled=self.use_amp and self.amp_dtype == torch.float16)
         self.criterion = torch.nn.CrossEntropyLoss(ignore_index=-100)
         total_steps = config['training'].get('max_steps', 100000)
         self.foundation_scheduler = CombinedScheduler(model.module if hasattr(model, 'module') else model, model_config, total_steps)
@@ -282,7 +282,14 @@ def main():
     parser.add_argument('--batch-size', type=int, default=None, help='Override batch size per GPU')
     args = parser.parse_args()
     (rank, world_size, local_rank) = setup_distributed()
-    device = torch.device(f'cuda:{local_rank}')
+    if world_size > 1:
+        device = torch.device(f'cuda:{local_rank}')
+    elif torch.cuda.is_available():
+        device = torch.device('cuda')
+    elif getattr(torch.backends, 'mps', None) is not None and torch.backends.mps.is_available():
+        device = torch.device('mps')
+    else:
+        device = torch.device('cpu')
     is_main_process = rank == 0
     config = load_config(args.config)
     model_config = LMRFoundationConfig.from_yaml(args.config)
@@ -329,7 +336,8 @@ def main():
             model = create_lmr_foundation(model_config).to(device)
             if config['training'].get('use_gradient_checkpointing', True):
                 model.enable_gradient_checkpointing()
-            torch.cuda.synchronize()
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
         if world_size > 1:
             dist.barrier()
     if is_main_process:
