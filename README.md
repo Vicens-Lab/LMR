@@ -164,17 +164,23 @@ assets/               figures
 
 ## Citation
 
-This work is **not yet published**. A citation will be added when it is available.
-For now, please reference the repository. Placeholder:
+If you use SHIFU in your research, please cite our bioRxiv preprint:
 
 ```bibtex
-@misc{lmr_shifu,
-  title  = {SHIFU: an integrated framework for deep learning of RNA secondary structure},
-  author = {Galvez, Gabriel and Vicens, Quentin},
-  note   = {Manuscript in preparation. Citation to be updated.},
-  year   = {TODO}
+@article{Galvez2026.07.15.738762,
+  author        = {Galvez, Gabriel Cardenas and Vicens, Quentin},
+  title         = {Shifu: an integrated framework for deep learning of RNA secondary structure},
+  elocation-id  = {2026.07.15.738762},
+  year          = {2026},
+  doi           = {10.64898/2026.07.15.738762},
+  publisher     = {Cold Spring Harbor Laboratory},
+  journal       = {bioRxiv},
+  url           = {https://www.biorxiv.org/content/early/2026/07/16/2026.07.15.738762},
+  eprint        = {https://www.biorxiv.org/content/early/2026/07/16/2026.07.15.738762.full.pdf}
 }
 ```
+
+If you use the SHIFU software implementation directly, please also cite this repository.
 
 ## License
 
